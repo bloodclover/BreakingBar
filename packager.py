@@ -56,7 +56,7 @@ subprocess.run("mkdir packs", shell=True)
 
 print("Compiling Resourcepacks")
 for format, mcVer in supported_formats:
-    packmeta = """{"pack": {"description": "A loading bar like breaking animation","pack_format": """ + str(format)
+    packmeta = """{"pack": {"description": "A loading bar like breaking animation","pack_format": """ + str(format) + """}}"""
     filename = f"{mcVer}__{str(format)}"
     subprocess.run("mkdir tmp", shell=True)
     subprocess.run("cp -r ./assets ./tmp", shell=True)
@@ -67,7 +67,7 @@ for format, mcVer in supported_formats:
     mcmeta.write(packmeta)
     mcmeta.close()
 
-    if format < 69:
+    if format < 4:
             subprocess.run("rm -r ./tmp/assets/minecraft/textures/block", shell=True)
     else:
             subprocess.run("rm -r ./tmp/assets/minecraft/textures/blocks", shell=True)
