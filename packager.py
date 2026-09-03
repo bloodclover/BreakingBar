@@ -56,7 +56,7 @@ subprocess.run("mkdir packs", shell=True)
 
 print("Compiling Resourcepacks")
 for format, mcVer in supported_formats:
-    packmeta = """{"pack": {"description": "A loading bar like breaking animation","pack_format": """ + str(format) + ""","min_format": 1,"max_format": 88}}"""
+    packmeta = """{"pack": {"description": "A loading bar like breaking animation","pack_format": """ + str(format)
     filename = f"{mcVer}__{str(format)}"
     subprocess.run("mkdir tmp", shell=True)
     subprocess.run("cp -r ./assets ./tmp", shell=True)
