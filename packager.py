@@ -58,7 +58,6 @@ print("Compiling Resourcepacks")
 for format, mcVer in supported_formats:
     packmeta = """{"pack": {"description": "A loading bar like breaking animation","pack_format": """ + str(format) + ""","min_format": 1,"max_format": 88}}"""
     filename = f"{mcVer}__{str(format)}"
-    print(filename)
     subprocess.run("mkdir tmp", shell=True)
     subprocess.run("cp -r ./assets ./tmp", shell=True)
     subprocess.run("cp ./LICENSE ./tmp", shell=True)
@@ -75,7 +74,9 @@ for format, mcVer in supported_formats:
     subprocess.run(f"mkdir ./packs/{filename}", shell=True)
     subprocess.run(f"cp -r ./tmp/* ./packs/{filename}", shell=True)
     subprocess.run("rm -r ./tmp", shell=True)
+    subprocess.run(f"zip -rq9 ./packs/{filename}/BreakingBar.zip ./packs/{filename}/*", shell=True)
+    
 
-    subprocess.run(f"zip -rq9 Breaking Bar.zip ./packs/{filename}/*", shell=True)
+    print("Completed " + filename)
 
 print("Done!")
