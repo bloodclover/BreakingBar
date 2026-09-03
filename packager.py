@@ -74,8 +74,9 @@ for format, mcVer in supported_formats:
     subprocess.run(f"mkdir ./packs/{filename}", shell=True)
     subprocess.run(f"cp -r ./tmp/* ./packs/{filename}", shell=True)
     subprocess.run("rm -r ./tmp", shell=True)
-    subprocess.run(f"zip -rq9 ./packs/{filename}/BreakingBar.zip ./packs/{filename}/*", shell=True)
-    
+    os.chdir(f"./packs/{filename}")
+    subprocess.run(f"zip -rq9 ./BreakingBar.zip ./*", shell=True)
+    os.chdir("../..")
 
     print("Completed " + filename)
 
